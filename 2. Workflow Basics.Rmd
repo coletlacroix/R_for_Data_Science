@@ -9,3 +9,66 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+```{r}
+# Some coding basics that were omitteed in the first chapter. 
+# You can do basic math in R
+1/200*30
+(59+73+2)/3
+sin(pi/2)
+```
+```{r}
+# you can create new objects with the assignment operator
+x <- 3*4
+x
+```
+```{r}
+# you can combine multiple elements into a vector
+primes <- c(2,3,5,7,11,13)
+primes
+```
+```{r}
+# You can apply basic arithmetic on vectors
+primes * 2
+primes - 1
+```
+```{r}
+# (Option + -) gives you the assignment command
+an_object_name_can_be_whatever_i_want <- 2.5
+```
+
+```{r}
+seq(from = 1, to = 10)
+seq(1, 10)
+x <- "hello world"
+x
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
