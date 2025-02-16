@@ -11,8 +11,8 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ```{r}
 # Notes
-# command + option + i gives you a new chunk
-# command + shift + enter will run your chunk
+# (command + option + i) gives you a new chunk
+# (command + shift + enter) will run your chunk
 ```
 
 ```{r}
@@ -112,8 +112,8 @@ ggplot(data = penguins,
 ```
 ```{r}
 # 5. Why does the following give an error and how would you fix it?
-ggplot(data = penguins) +
-  geom_point()
+#ggplot(data = penguins) +
+  #geom_point()
 # It hasn't been given any variables to graph. It can't graph all of them. Gives the error message "Unexpected end"
 ```
 ```{r}
