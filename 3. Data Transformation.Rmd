@@ -1,0 +1,109 @@
+---
+title: "3. Data Transformation"
+author: "Cole LaCroix"
+date: "2025-02-16"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+install.packages("nycflights13")
+```
+
+```{r}
+library(tidyverse)
+library(nycflights13)
+```
+
+```{r}
+glimpse(flights)
+# int short for integer
+# dbl short for double or real numbers
+# chr for character (strings?)
+# dttm for date-time
+```
+```{r}
+# dplyr basics
+# first argument is always data frame
+# subsequent arguments typically describe which columns to operate on, no quotes
+# the output is always a new data fram 
+flights |>
+  filter(dest == "IAH") |>
+  group_by(year, month, day) |>
+  summarise(
+    arr_delay = mean(arr_delay, na.rm = TRUE)
+  )
+```
+```{r}
+# filter for flights departing more than 120 minutes late
+flights |> 
+  filter(dep_delay > 120)
+```
+```{r}
+# filter for flights that departed on Jan 1
+flights |>
+  filter(month == 1 & day == 1)
+```
+```{r}
+# filter for flights that departed in Jan or Feb
+flights |>
+  filter(month == 1 | month == 2)
+```
+```{r}
+flights |> 
+  filter(month %in% c(1,2))
+```
+```{r}
+flights |>
+  arrange(year, month, day, dep_time)
+```
+```{r}
+# Use arrange(desc(x)) on a column to reorder a data frame base on those column values.
+flights |>
+  arrange(desc(dep_delay))
+```
+```{r}
+# Use distict() to identify if any duplicates exist
+flights |> 
+  distinct()
+```
+```{r}
+# find all flights with unique origin and destination pairs
+# first pair found will be kept. the rest hidden
+flights |> 
+  distinct(origin, dest)
+```
+```{r}
+flights |>
+  count(origin, dest, sort = TRUE)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
