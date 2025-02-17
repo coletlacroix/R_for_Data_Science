@@ -80,6 +80,42 @@ flights |>
 flights |>
   count(origin, dest, sort = TRUE)
 ```
+```{r}
+# Exercises
+# 1. Filter
+flights |> 
+  filter(arr_delay > 120)
+
+flights |>
+  filter(dest %in% c("IAH", "HOU"))
+
+flights |> 
+  filter(carrier %in% c("UA", "AA", "DL"))
+
+flights |>
+  filter(month %in% c( 7, 8, 9))
+
+flights |>
+  filter(arr_delay > 120) |>
+  filter(dep_delay < 1)
+
+flights |>
+  filter(dep_delay > 60) |>
+  filter(((sched_arr_time - sched_dep_time) - (arr_time - dep_time)) < 31)
+```
+```{r}
+# 2. Sort flights
+flights |>
+  arrange(desc(dep_delay)) 
+
+flights |>
+  arrange(dep_time)
+```
+```{r}
+# 3. fastest flights
+flights |>
+  arrange((sched_arr_time - sched_dep_time) / air_time)
+```
 
 
 
